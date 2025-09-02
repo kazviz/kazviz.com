@@ -1,0 +1,48 @@
+{
+  "name": "kazviz.com",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev --port 4040",
+    "build": "bun run build:id && bun run build:json && vinxi build",
+    "build:id": "bun run script/build:id.ts",
+    "build:json": "bun run script/build:json.ts",
+    "build:analyze": "bun run script/build:optimize.ts",
+    "start": "vinxi start --port 4040",
+    "i18n:type": "bun run script/i18n:type.ts",
+    "net:dump": "bun run script/net:dump.ts",
+    "format": "bun run format:import:all && prettier --write .",
+    "format:import": "bun run script/format:import.ts",
+    "format:import:all": "bun run script/format:import.ts --all"
+  },
+  "dependencies": {
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.15.3",
+    "@solidjs/start": "^1.1.0",
+    "lucide-solid": "^0.525.0",
+    "marked": "^16.0.0",
+    "shiki": "^3.8.1",
+    "solid-js": "^1.9.5",
+    "vinxi": "^0.5.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "gray-matter": "^4.0.3",
+    "lefthook": "^1.12.2",
+    "playwright": "^1.54.2",
+    "sass": "^1.89.2"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
