@@ -1,0 +1,39 @@
+// Mixin for mobile (portrait)
+@mixin mobile {
+  @media screen and (max-width: 799px) {
+    @content;
+  }
+}
+
+// Mixin for tablet (portrait)
+@mixin tablet {
+  @media screen and (min-width: 800px) and (max-width: 1249px) {
+    @content;
+  }
+}
+
+// Mixin for desktop
+@mixin desktop {
+  @media screen and (min-width: 1250px) and (max-width: 1440px) {
+    @content;
+  }
+}
+
+// Mixin for large desktop (larger than 1440px)
+@mixin large-desktop {
+  @media screen and (min-width: 1441px) {
+    @content;
+  }
+}
+
+@mixin above-mobile {
+  @media screen and (min-width: 799px) {
+    @content;
+  }
+}
+
+@mixin above-tablet {
+  @media screen and (min-width: 1249px) {
+    @content;
+  }
+}
