@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "allowJs": true,
+    "strict": true,
+    "noEmit": true,
+    "types": ["vinxi/types/client"],
+    "isolatedModules": true,
+    "paths": {
+      "~/*": ["./src/*"],
+      "@comp/*": ["./src/components/*"],
+      "@content/*": ["./src/content/*"],
+      "@context/*": ["./src/context/*"],
+      "@data/*": ["./src/data/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@layout/*": ["./src/layout/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@page/*": ["./src/pages/*"],
+      "@provider/*": ["./src/provider/*"],
+      "@service/*": ["./src/services/*"],
+      "@style/*": ["./src/styles/*"],
+      "@type/*": ["./src/types/*"],
+      "@util/*": ["./src/utils/*"]
+    }
+  }
+}
