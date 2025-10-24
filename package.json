@@ -1,6 +1,7 @@
 {
   "name": "kazviz.com",
   "type": "module",
+  "license": "AGPL-3.0",
   "scripts": {
     "dev": "vinxi dev --port 4040",
     "build": "bun run build:id && bun run build:json && vinxi build",
@@ -12,7 +13,8 @@
     "net:dump": "bun run script/net:dump.ts",
     "format": "bun run format:import:all && prettier --write .",
     "format:import": "bun run script/format:import.ts",
-    "format:import:all": "bun run script/format:import.ts --all"
+    "format:import:all": "bun run script/format:import.ts --all",
+    "postinstall": "lefthook install"
   },
   "dependencies": {
     "@solidjs/meta": "^0.29.4",
