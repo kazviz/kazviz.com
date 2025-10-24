@@ -1,0 +1,312 @@
+@use "./var/breakpoint";
+@use "./var/global";
+
+// ==========================
+// THEME COLOR VARIABLES
+//
+// .star = Light Theme
+// .moon = Dark Theme
+//
+// --cl-0 ... --cl-5   : Grayscale steps
+// --cl-f              : Foreground (main text)
+// --cl-e ... --cl-a   : Lighter grayscale
+// --cl-zeal           : Primary accent
+// --cl-ruby           : Error/alert
+// --cl-noir           : Info/blue
+// --cl-zure           : Secondary accent
+// --cl-aqua           : Tertiary accent
+// --cl-mist           : Success/green
+// --cl-mint           : Alternative green
+// --cl-zest           : Warning/yellow
+// --cl-iris           : Purple accent
+// --cl-nero           : True black
+//
+// You can add more semantic colors as needed (success, warning, error, info, etc)
+
+/* === GLOBAL VARS */
+
+.star {
+  --cl-0: #000;
+  --cl-1: #111;
+  --cl-2: #222;
+  --cl-3: #333;
+  --cl-4: #444;
+  --cl-5: #555;
+  --cl-f: #fff;
+  --cl-e: #eee;
+  --cl-d: #ddd;
+  --cl-c: #ccc;
+  --cl-b: #bbb;
+  --cl-a: #aaa;
+
+  --cl-zeal: #64c; // Primary accent
+  --cl-zeal-l: #75c;
+  --cl-zeal-d: #42a;
+
+  --cl-ruby: #b00; // Error/alert
+  --cl-ruby-l: #d11;
+  --cl-ruby-d: #722;
+
+  --cl-noir: #05f; // Info/blue
+  --cl-noir-l: #7af; // Info/blue light
+  --cl-noir-d: #024; // Info/blue dark
+
+  --cl-zure: #08c; // Secondary accent
+  --cl-zure-l: #39d; // Secondary accent light
+  --cl-zure-d: #056; // Secondary accent dark
+
+  --cl-aqua: #0ce; // Tertiary accent
+  --cl-aqua-l: #5ef; // Tertiary accent light
+  --cl-aqua-d: #099; // Tertiary accent dark
+
+  --cl-mist: #087; // Success/green
+  --cl-mist-l: #0ca;
+  --cl-mist-d: #065; // Success/green dark
+
+  --cl-mint: #0d3; // Alternative green
+  --cl-mint-l: #4f7;
+  --cl-mint-d: #0a2;
+
+  --cl-zest: #fa2; // Warning/yellow
+  --cl-zest-l: #ffd966; // Warning/yellow light
+  --cl-zest-d: #b8860b; // Warning/yellow dark
+
+  --cl-iris: #707; // Purple accent
+  --cl-iris-d: #505;
+  --cl-iris-l: #a0a;
+
+  --cl-nero: #000; // True black
+
+  // Utility semantic colors
+  --cl-success: var(--cl-mist);
+  --cl-warning: var(--cl-zest);
+  --cl-error: var(--cl-ruby);
+  --cl-info: var(--cl-noir);
+
+  // Utility semantic colors - light and dark
+  --cl-success-l: var(--cl-mist-l);
+  --cl-success-d: var(--cl-mist-d);
+  --cl-warning-l: var(--cl-zest-l);
+  --cl-warning-d: var(--cl-zest-d);
+  --cl-error-l: var(--cl-ruby-l);
+  --cl-error-d: var(--cl-ruby-d);
+  --cl-info-l: #7af; // Info/blue light
+  --cl-info-d: #024; // Info/blue dark
+}
+
+.moon {
+  --cl-0: #fff;
+  --cl-1: #eee;
+  --cl-2: #ddd;
+  --cl-3: #ccc;
+  --cl-4: #bbb;
+  --cl-5: #aaa;
+  --cl-f: #000;
+  --cl-e: #111;
+  --cl-d: #222;
+  --cl-c: #333;
+  --cl-b: #444;
+  --cl-a: #555;
+
+  --cl-zeal: #64c;
+  --cl-zeal-l: #75c;
+  --cl-zeal-d: #42a;
+
+  --cl-ruby: #b00;
+  --cl-ruby-l: #d11;
+  --cl-ruby-d: #722;
+
+  --cl-noir: #05f;
+  --cl-noir-l: #7af;
+  --cl-noir-d: #024;
+
+  --cl-zure: #08c;
+  --cl-zure-l: #39d;
+  --cl-zure-d: #07b;
+
+  --cl-aqua: #0ef;
+  --cl-aqua-l: #5ef;
+  --cl-aqua-d: #099;
+
+  --cl-mist: #087; // Success/green
+  --cl-mist-l: #0ca;
+  --cl-mist-d: #065; // Success/green dark
+
+  --cl-mint: #0d3; // Alternative green
+  --cl-mint-l: #4f7;
+  --cl-mint-d: #0a2;
+
+  --cl-zest: #fa2;
+  --cl-zest-l: #ffd966;
+  --cl-zest-d: #b8860b;
+
+  --cl-iris: #707;
+  --cl-iris-d: #505;
+  --cl-iris-l: #a0a;
+
+  --cl-nero: #000;
+
+  // Utility semantic colors
+  --cl-success: var(--cl-mist);
+  --cl-warning: var(--cl-zest);
+  --cl-error: var(--cl-ruby);
+  --cl-info: var(--cl-noir);
+
+  // Utility semantic colors - light and dark
+  --cl-success-l: var(--cl-mist-l);
+  --cl-success-d: var(--cl-mist-d);
+  --cl-warning-l: var(--cl-zest-l);
+  --cl-warning-d: var(--cl-zest-d);
+  --cl-error-l: var(--cl-ruby-l);
+  --cl-error-d: var(--cl-ruby-d);
+  --cl-info-l: #7af;
+  --cl-info-d: #024;
+}
+
+// ==========================
+/* === SPECIAL CLASSES === */
+
+.ship {
+  max-width: 1300px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.boat {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cano {
+  max-width: 400px;
+}
+
+.cn-ctr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// ==================
+/* === BUTTONS === */
+
+.btn {
+  display: inline-block;
+  font-weight: 600;
+
+  &.s {
+    padding: 10px 15px;
+  }
+
+  &.m {
+    padding: 25px 35px;
+  }
+
+  &.l {
+    padding: 40px 50px;
+  }
+}
+
+/* === BORDERS === */
+
+.bd {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.br-5 {
+  border-radius: 10px;
+}
+
+.br-10 {
+  border-radius: 10px;
+}
+
+// ========================
+/* === MOON AND STAR === */
+
+.moon .wolf,
+.star .swan {
+  display: unset;
+}
+
+.star .wolf,
+.moon .swan {
+  display: none !important;
+}
+
+// ========================
+/* === BREAKPOINTS === */
+
+@include breakpoint.mobile {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile-only {
+    display: unset;
+  }
+}
+
+@include breakpoint.above-mobile {
+  .hide-mobile {
+    display: unset;
+  }
+
+  .show-mobile-only {
+    display: none !important;
+  }
+}
+
+// ========================
+/* === FONTS === */
+.fm-mono {
+  font-family: global.$fm-mono;
+
+  &.fs-fix {
+    font-size: 0.9em;
+  }
+}
+
+// ========================
+/* === SHIKI === */
+
+.moon .shiki,
+.moon .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  /* Optional, if you also want font styles */
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+// ========================
+/* === badges === */
+
+.prem-badge {
+  background: linear-gradient(
+      45deg,
+      var(--cl-zest),
+      var(--cl-zeal-l),
+      var(--cl-zest)
+    ),
+    var(--cl-zest-l);
+  background-size: 200% 100%;
+  animation: gradient-move 5s ease-in infinite;
+  background-position: 0 0;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: #fff;
+
+  @keyframes gradient-move {
+    0% {
+      background-position: 0% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+}

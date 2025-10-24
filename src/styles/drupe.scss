@@ -1,0 +1,45 @@
+b,
+strong {
+  font-weight: 600;
+}
+
+pre {
+  cursor: text !important;
+}
+
+*:not([type="text"]):not([type="password"]):not([type="email"]):not(
+    textarea
+  ):focus {
+  outline: none;
+  box-shadow: none;
+}
+
+*:not([type="text"]):not([type="password"]):not([type="email"]):not(
+    textarea
+  ):focus-visible {
+  outline: #ff0000 2px solid;
+  box-shadow: none;
+}
+
+/* === SCROLLBAR === */
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  height: 1rem;
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888a;
+  border: 1px solid #0000;
+  background-clip: content-box;
+  border-radius: 10px;
+}
+
+body.star::-webkit-scrollbar {
+  background-color: #ddd;
+}
+
+body.moon::-webkit-scrollbar {
+  background-color: #222;
+}
