@@ -1,0 +1,125 @@
+@use "../mode/naval.scss";
+
+.star {
+  --cl-link: #08d;
+  --cl-link-hov: #1cf;
+  background: #fff;
+
+  @include naval.set-colors(#fff, #888, #333, #111);
+
+  #title-banner {
+    background-image: linear-gradient(90deg, #7cf, #ccf);
+  }
+}
+
+.moon {
+  --cl-link: #5bf;
+  --cl-link-hov: #9ef;
+  background: #000;
+
+  @include naval.set-colors(#000, #888, #fff, #ddd);
+
+  #title-banner {
+    background-image: linear-gradient(90deg, #07c, #54e);
+  }
+}
+
+#legal {
+  hr {
+    border-top: 1px #8885 solid;
+    border-bottom: none;
+  }
+
+  h1 {
+    font-size: 3em;
+    font-weight: 900;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    color: var(--cl-0);
+  }
+
+  h2 {
+    font-size: 1.8em;
+    font-weight: 900;
+  }
+}
+
+article {
+  color: var(--cl-4);
+  background-color: var(--cl-f);
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 100px;
+
+  b,
+  h2,
+  h3,
+  h4,
+  strong {
+    color: var(--cl-0);
+  }
+
+  a {
+    font-weight: 600;
+
+    &:link,
+    &:visited {
+      color: var(--cl-link);
+    }
+
+    &:hover {
+      color: var(--cl-link-hov);
+      text-decoration: underline;
+    }
+  }
+
+  blockquote {
+    margin: 0;
+    background: #8883;
+    border-radius: 5px;
+    padding: 10px 10px 10px 30px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+
+    th,
+    td {
+      border: 1px solid #8885;
+      padding: 12px 15px;
+      text-align: left;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    th {
+      background: #f1f1f1;
+      font-weight: 600;
+    }
+  }
+}
+
+#title-banner {
+  padding: 100px 0;
+  font-family: "Source Serif 4", "Fira Sans", serif;
+
+  .subtitle {
+    color: var(--cl-4);
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+#main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 150px 0 30px 0;
+}
