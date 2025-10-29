@@ -1,0 +1,309 @@
+@use "../var/global";
+@use "../var/breakpoint";
+
+$max-width: 800px;
+$padding-top-bottom: 10px;
+$padding-left-right: 45px;
+
+.artes {
+  line-height: 1.7;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 2em;
+    font-weight: 800;
+  }
+
+  section > h2:first-child {
+    padding-top: 0;
+  }
+
+  h3 {
+    font-size: 1.8em;
+    font-weight: 700;
+  }
+
+  hr {
+    margin: 30px 0;
+
+    @at-root .star .artes hr {
+      border: none;
+      border-top: 1px #ddd solid;
+    }
+
+    @at-root .moon .artes hr {
+      border: none;
+      border-top: 1px #222 solid;
+    }
+
+    @at-root .n.arte .artes hr {
+      border: none;
+      border-top: #8883 1px solid;
+    }
+  }
+
+  code {
+    font: 0.95em global.$fm-mono;
+
+    &:not(
+        pre code,
+        h1 code,
+        h2 code,
+        h3 code,
+        h4 code,
+        h5 code,
+        a code,
+        code a
+      ) {
+      font-size: 15px;
+      display: inline-block;
+      padding: 2px 3px;
+      border-radius: 3px;
+      color: var(--cl-0);
+      background: #fb64;
+    }
+  }
+
+  kbd {
+    font: 0.85em global.$fm-mono;
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 0 3px;
+    border-radius: 5px;
+    border: 1px solid #8886;
+    background: linear-gradient(180deg, var(--cl-e) 0%, var(--cl-d) 100%);
+    color: var(--cl-3);
+    box-shadow: 0 1px 0 var(--cl-5, #ccc), 0 2px 4px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.3px;
+    transition: all 0.1s ease;
+    position: relative;
+    top: -1px;
+
+    // Dark mode styles
+    @at-root .moon .artes kbd {
+      background: linear-gradient(180deg, #4a4a4a 0%, #383838 100%);
+      // border-color: #555;
+      box-shadow: 0 1px 0 #555, 0 2px 4px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    // Pressed effect on hover (subtle)
+    &:hover {
+      transform: translateY(0.5px);
+      box-shadow: 0 0.5px 0 var(--cl-5, #ccc), 0 1px 2px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    @at-root .moon .artes kbd:hover {
+      box-shadow: 0 0.5px 0 #555, 0 1px 2px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    // Special styling for modifier keys
+    &.modifier {
+      min-width: 2.5em;
+      font-size: 0.8em;
+    }
+
+    // Combination keys styling
+    & + kbd {
+      margin-left: 4px;
+    }
+
+    // Key combination separator
+    & + .key-separator + kbd {
+      margin-left: 8px;
+    }
+  }
+
+  // Key separator for combinations like Ctrl + C
+  .key-separator {
+    margin: 0 4px;
+    color: var(--cl-3, #666);
+    font-weight: 400;
+    user-select: none;
+  }
+
+  a {
+    code {
+      background: none !important;
+      text-decoration: underline 1px;
+    }
+  }
+
+  blockquote {
+    padding: 10px 20px;
+    color: var(--cl-4);
+
+    > * {
+      background-color: #8882;
+    }
+
+    p {
+      margin: 0;
+      padding: 10px 45px;
+    }
+  }
+
+  dt {
+    margin-top: 10px;
+  }
+
+  dd {
+    margin-left: 20px;
+  }
+
+  ul,
+  ol {
+    margin: 0 auto;
+    max-width: $max-width;
+
+    li {
+      padding: 2px 0 2px 10px;
+
+      p {
+        padding: 0.2em 0 0.2em 10px;
+      }
+    }
+
+    ul,
+    ol {
+      padding-left: 15px;
+      margin-left: 0px;
+    }
+  }
+
+  a {
+    font-weight: 600;
+    text-decoration: underline;
+
+    &:link,
+    &:visited {
+      color: var(--cl-link);
+
+      code {
+        text-decoration: underline;
+      }
+    }
+
+    &:hover {
+      color: var(--cl-link-hover);
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .shiki {
+    border: 1px solid #8885;
+    border-radius: 5px;
+    padding: 10px 20px;
+    line-height: 1.3 !important;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  // Wrapped code styling untuk maintain indentasi
+  .shiki-wrap {
+    overflow-x: visible !important;
+    white-space: pre-wrap !important;
+    word-break: break-word;
+
+    code {
+      white-space: pre-wrap !important;
+      word-break: break-word;
+      line-height: 1.3; // Consistent dengan parent
+    }
+
+    .line {
+      // Reset semua spacing yang bisa menyebabkan masalah
+      display: inline-block;
+      margin: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      // Set line-height yang lebih ketat
+      // line-height: 1.3;
+
+      // Hanging indent untuk maintain indentasi saat wrap
+      text-indent: calc(var(--line-indent, 0) * -1ch);
+      padding-left: calc(var(--line-indent, 0) * 1ch);
+
+      // Handle empty lines tanpa extra height
+      &:empty {
+        line-height: 1.3;
+        height: 1.3em;
+      }
+    }
+  }
+  dl .cn-artes,
+  ul .cn-artes,
+  ol .cn-artes,
+  dl .shiki,
+  ul .shiki,
+  ol .shiki {
+    padding: 5px 0 !important;
+  }
+
+  h1 + #boat,
+  .html-viewer,
+  .shiki {
+    max-width: $max-width;
+    margin: 0.5em auto;
+  }
+}
+
+@include breakpoint.mobile {
+  .artes {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    dl,
+    table,
+    blockquote,
+    .hint,
+    .cn-artes {
+      padding: $padding-top-bottom 20px;
+      max-width: $max-width;
+      margin: 0 auto;
+    }
+
+    ul,
+    ol {
+      padding: 10px 45px 10px 35px;
+    }
+  }
+}
+
+@include breakpoint.above-mobile {
+  .artes {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    dl,
+    table,
+    blockquote,
+    .hint,
+    .cn-artes {
+      padding: $padding-top-bottom 45px;
+      max-width: $max-width;
+      margin: 0 auto;
+    }
+
+    ul,
+    ol {
+      padding: 10px 45px 10px 65px;
+    }
+  }
+}
