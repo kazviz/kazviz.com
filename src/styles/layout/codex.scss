@@ -1,0 +1,152 @@
+@use "../var/breakpoint.scss";
+@use "../var/global.scss";
+@use "../content/aside.scss";
+@use "../content/hint.scss";
+@use "../mode/naval.scss";
+
+.star {
+  --cl-link: #08d;
+  --cl-link-hov: #1cf;
+  background: #fff;
+
+  @include naval.set-colors(#fff, #888, #333, #111);
+
+  #title-banner {
+    background-image: linear-gradient(90deg, #ccc, #eca);
+  }
+}
+
+.moon {
+  --cl-link: #5bf;
+  --cl-link-hov: #9ef;
+  background: #000;
+
+  @include naval.set-colors(#000, #888, #fff, #ddd);
+
+  #title-banner {
+    background-image: linear-gradient(90deg, #333, #643);
+  }
+}
+
+#voyage {
+  width: 100%;
+  transition: padding 0.5s;
+  font-family: global.$fm-serif;
+
+  .artes {
+    color: var(--cl-3);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: var(--cl-0);
+    }
+
+    transition: padding 0.3s;
+  }
+}
+
+#title-banner {
+  width: 100%;
+  max-width: 100% !important;
+  padding: 100px 0;
+  text-align: center;
+
+  .label {
+    display: flex;
+    padding-left: 5%;
+
+    span {
+      display: inline-block;
+      padding: 5px 15px;
+      border: 1px #0a93 solid;
+      background-color: #0002;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 20px 0 20px 0;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 900;
+    color: var(--cl-0);
+    font-size: 3em;
+    font-weight: 900;
+  }
+
+  .tagline {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--cl-4);
+  }
+}
+
+#main-content {
+  > section {
+    padding: 60px 0;
+  }
+
+  > section:first-of-type {
+    margin-top: 30px;
+  }
+}
+
+#metadata {
+  font-size: 0.9em;
+  color: var(--cl-5);
+  padding: 20px 10px;
+  text-align: center;
+
+  .update-date {
+    display: block;
+  }
+}
+
+@include breakpoint.mobile {
+  #voyage {
+    .artes {
+      font-size: 1rem;
+    }
+  }
+}
+
+@include breakpoint.tablet {
+  #voyage {
+    .artes {
+      padding-left: 40px;
+
+      &.right-shift {
+        padding-right: 250px;
+      }
+
+      &.left-shift {
+        padding-left: 250px;
+      }
+    }
+  }
+}
+
+@include breakpoint.above-mobile {
+  #voyage {
+    .artes {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.sen {
+  #voyage {
+    .artes,
+    #title-banner {
+      display: none;
+    }
+  }
+}
