@@ -30,7 +30,7 @@ function isFEError(error: unknown): error is FEErrorObject {
 }
 
 export function assignErrorMessage(
-  error: BEErrorObject | FEErrorObject,
+  error: FEErrorObject,
   // eslint-disable-next-line no-unused-vars
   setError: (field: string, msg: string) => void,
   mapper: ErrorMapper,
@@ -55,7 +55,7 @@ export function assignErrorMessage(
 
 export function handleErrorResponse(
   response: {
-    error: BEErrorObject | FEErrorObject | (BEErrorObject | FEErrorObject)
+    error: FEErrorObject | FEErrorObject
   },
   // eslint-disable-next-line no-unused-vars
   setError: (field: string, msg: string) => void,
@@ -80,7 +80,7 @@ export function handleBEError(
 ) {
   if (error instanceof FEError || isFEError(error)) {
     assignErrorMessage(
-      error as BEErrorObject | FEErrorObject,
+      error as FEErrorObject,
       setError,
       errorMap,
       errorMessages
@@ -100,7 +100,7 @@ export function handleBEErrorWithTranslation(
 ) {
   if (error instanceof FEError || isFEError(error)) {
     assignErrorMessageWithTranslation(
-      error as BEErrorObject | FEErrorObject,
+      error as FEErrorObject,
       setError,
       errorMap,
       t
@@ -111,7 +111,7 @@ export function handleBEErrorWithTranslation(
 }
 
 export function assignErrorMessageWithTranslation(
-  error: BEErrorObject | FEErrorObject,
+  error: FEErrorObject,
   // eslint-disable-next-line no-unused-vars
   setError: (field: string, msg: string) => void,
   mapper: ErrorMapper,
