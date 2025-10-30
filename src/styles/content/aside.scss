@@ -1,0 +1,63 @@
+aside.cn-aside {
+  padding: 1.4rem 0 1rem 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  margin: 30px 0;
+
+  .title {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .icon svg {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    fill: currentcolor;
+  }
+
+  &.tip {
+    border-top-color: #0ee;
+    border-bottom-color: #0ee;
+  }
+
+  &.warn {
+    background-color: #f702;
+    border-top-color: #f70;
+    border-bottom-color: #f70;
+  }
+
+  &.task {
+    background-color: #8853;
+    border-top-color: var(--cl-ruby);
+    border-bottom-color: var(--cl-ruby);
+  }
+}
+
+.star aside.cn-aside {
+  &.note {
+    background-color: #eef;
+    border-top-color: #f9f;
+    border-bottom-color: #f9f;
+  }
+
+  &.tip {
+    background-color: #1ef1;
+  }
+}
+
+.moon aside.cn-aside {
+  &.note {
+    background-color: #225;
+    border-top-color: #808;
+    border-bottom-color: #808;
+  }
+
+  &.tip {
+    background-color: #1ef2;
+  }
+}
