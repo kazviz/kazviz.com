@@ -1,0 +1,29 @@
+@use "../mode/naval.scss";
+
+:root {
+  --cl-main: #400;
+}
+
+.star {
+  --cl-link: #400;
+  --cl-link-hover: #600;
+  background-color: #fff;
+
+  @include naval.set-colors(#fff, #888, #333, #111);
+
+  #title-banner {
+    background: linear-gradient(90deg, #dde2ff, #fff3ec);
+  }
+}
+
+.moon {
+  --cl-link: #c00;
+  --cl-link-hover: #f00;
+  background-color: #000;
+
+  @include naval.set-colors(#000, #888, #fff, #ddd);
+
+  #title-banner {
+    background: linear-gradient(90deg, #215, #200);
+  }
+}
