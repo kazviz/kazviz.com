@@ -1,0 +1,27 @@
+.hint {
+  color: var(--cl-1);
+
+  &.info,
+  &.warn,
+  &.error {
+    padding-top: 1em;
+    padding-bottom: 1.2em;
+    margin-top: 1em;
+    margin-bottom: 1.2em;
+  }
+
+  &.info p {
+    background-color: #0f03;
+    border-left: 4px solid #1d1;
+  }
+
+  &.warn p {
+    background-color: #fd03;
+    border-left: 4px solid #fa5;
+  }
+
+  &.error p {
+    background-color: #f303;
+    border-left: 4px solid #d66;
+  }
+}
