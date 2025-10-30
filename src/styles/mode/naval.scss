@@ -1,0 +1,21 @@
+@mixin set-colors($bg-main, $cl-main, $cl-hover, $cl-active) {
+  #naval {
+    background: $bg-main;
+    // box-shadow: #0001 0 7px 10px;
+
+    a:link,
+    a:visited,
+    button {
+      color: $cl-main;
+
+      &.active {
+        color: $cl-active;
+      }
+    }
+
+    a:hover,
+    button:hover {
+      color: $cl-hover;
+    }
+  }
+}

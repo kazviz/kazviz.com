@@ -1,0 +1,176 @@
+@use "../var/breakpoint";
+
+#harbor {
+  height: 70px;
+}
+
+#naval {
+  height: 70px;
+  font-size: 0px;
+  white-space: nowrap;
+  position: relative;
+  z-index: 9;
+
+  button {
+    background: none;
+    border: none;
+  }
+
+  .ship {
+    display: grid;
+    grid-template-columns: min-content auto auto;
+    grid-template-rows: 70px;
+  }
+
+  #banner-panel {
+    display: flex;
+
+    a.land {
+      display: flex;
+      font-size: 1rem;
+      transition: color 0.2s;
+      align-items: center;
+      padding: 0 20px;
+      height: 100%;
+
+      div {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 15px;
+
+        b {
+          font-family: "Source Serif 4", "Fira Sans", serif;
+          font-size: 1.2em;
+          font-weight: 800;
+          width: 100%;
+        }
+
+        span {
+          letter-spacing: 1px;
+          font-size: 0.8em;
+          font-weight: 400;
+        }
+      }
+
+      svg {
+        fill: transparent;
+
+        path {
+          fill: var(--cl-f);
+          stroke-width: 4;
+          stroke: currentColor;
+        }
+      }
+    }
+  }
+
+  #basin-panel {
+    button,
+    a {
+      font-size: 1rem;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    a {
+      padding: 0 20px;
+      letter-spacing: 2px;
+    }
+
+    span {
+      padding-right: 3px;
+    }
+
+    svg:not(.lucide-chevron-down) {
+      height: 1.3em;
+    }
+
+    svg.lucide-chevron-down {
+      height: 1em;
+      transition: transform 0.7s;
+    }
+
+    button.active svg.lucide-chevron-down {
+      transform: rotate(180deg);
+    }
+  }
+
+  #util-panel {
+    font-size: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 10px;
+    grid-column: 4;
+
+    #util-menu {
+      margin-right: 20px;
+      display: flex;
+
+      button,
+      a {
+        padding: 0 5px;
+        display: inline-flex;
+        align-items: center;
+        background: none;
+        font-size: 1rem;
+        border: none;
+        height: 100%;
+        transition: all 0.3s;
+        border: 1px solid #0000;
+
+        svg {
+          height: 1.5rem;
+        }
+
+        &.active {
+          background: #8883;
+          border: 1px solid #8885;
+          border-radius: 300px 300px 0 0;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint.mobile {
+  #naval {
+    #banner-panel {
+      padding-right: 10px;
+
+      svg {
+        height: 2em;
+        width: 2em;
+
+        path {
+          stroke-width: 5;
+        }
+      }
+    }
+
+    #basin-panel {
+      button {
+        padding: 0 5px;
+      }
+    }
+  }
+}
+
+@include breakpoint.above-mobile {
+  #naval {
+    #banner-panel {
+      svg {
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    #basin-panel {
+      button {
+        margin-right: 10px;
+        padding: 0 15px 0 25px;
+      }
+    }
+  }
+}
