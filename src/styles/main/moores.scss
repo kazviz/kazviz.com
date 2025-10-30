@@ -1,0 +1,133 @@
+@use "../var/breakpoint.scss";
+
+#moores {
+  border-top: 1px solid #8883;
+  font-size: 1em;
+  position: relative;
+  z-index: 5;
+
+  .ship {
+    display: grid;
+    padding: 100px 0;
+    width: 100%;
+  }
+
+  a {
+    display: inline-block;
+    padding: 7px 10px;
+  }
+
+  h2 {
+    color: var(--cl-link);
+    font-size: 2.5em;
+    font-weight: 800;
+    font-family: "Source Serif 4", "Fira Sans", serif;
+    margin: 0;
+  }
+
+  h3 {
+    margin: 0;
+    padding: 8px 10px;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .banner {
+    padding: 0 50px 0 30px;
+
+    .slogan {
+      width: 100%;
+      padding: 10px 0;
+      margin: 15px 0;
+    }
+
+    p:last-of-type {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .socials {
+    display: flex;
+    padding: 25px 0;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: var(--cl-0);
+    }
+  }
+
+  .copyright {
+    border-top: 1px solid #8883;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.8em;
+  }
+}
+
+.star #moores {
+  background-color: #fff;
+  color: #333;
+
+  a {
+    &:link,
+    &:visited {
+      color: #333;
+    }
+
+    &:hover {
+      color: var(--cl-link);
+      text-decoration: underline;
+    }
+  }
+}
+
+.moon #moores {
+  background-color: #000;
+  color: #ccc;
+
+  a {
+    &:link,
+    &:visited {
+      color: #ccc;
+    }
+
+    &:hover {
+      color: var(--cl-link-hov);
+      text-decoration: underline;
+    }
+  }
+}
+
+@include breakpoint.mobile {
+  #moores {
+    .ship {
+      text-align: center;
+
+      > div {
+        margin: 20px 0;
+      }
+    }
+
+    .socials {
+      justify-content: center;
+    }
+  }
+}
+
+@include breakpoint.above-mobile {
+  #moores {
+    .ship {
+      grid-template-columns: 1.5fr 0.5fr;
+    }
+
+    .slogan {
+      text-align: left;
+    }
+  }
+}
