@@ -1,0 +1,36 @@
+#cross {
+  position: absolute;
+  background-color: var(--cl-f);
+  box-shadow: 0 5px 10px #0004;
+  z-index: 4;
+  border-radius: 5px;
+  border: 1px solid #8885;
+  width: 250px;
+  padding: 0 5px;
+  top: 70px;
+
+  a {
+    width: 100%;
+    display: block;
+    background-color: #0000;
+    padding: 10px 15px;
+    border-radius: 0;
+    margin: 5px 0;
+    border: none;
+    border-top: 1px #8885 solid;
+    text-align: left;
+    color: var(--cl-3);
+
+    &:hover {
+      color: var(--cl-0);
+      background-color: #8881;
+    }
+  }
+
+  .label {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.85em;
+    color: var(--cl-5);
+  }
+}
