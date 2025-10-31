@@ -67,7 +67,7 @@ export default defineConfig({
         "@context": join(rootDir, "src/context"),
         "@data": join(rootDir, "src/data"),
         "@hooks": join(rootDir, "src/hooks"),
-        "@layout": join(rootDir, "src/layout"),
+        "@layout": join(rootDir, "src/layouts"),
         "@lib": join(rootDir, "src/lib"),
         "@page": join(rootDir, "src/pages"),
         "@provider": join(rootDir, "src/provider"),

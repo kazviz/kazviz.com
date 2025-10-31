@@ -20,7 +20,7 @@
       "@context/*": ["./src/context/*"],
       "@data/*": ["./src/data/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@layout/*": ["./src/layout/*"],
+      "@layout/*": ["./src/layouts/*"],
       "@lib/*": ["./src/lib/*"],
       "@page/*": ["./src/pages/*"],
       "@provider/*": ["./src/provider/*"],
