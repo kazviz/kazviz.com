@@ -4,6 +4,24 @@ export default defineNitroConfig({
     brotli: true
   },
   routeRules: {
+    // Build output (JS/CSS bundles) - no cache in dev to prevent stale scripts
+    "/_build/**": {
+      headers: {
+        "Cache-Control":
+          process.env.NODE_ENV === "development"
+            ? "no-store, no-cache, must-revalidate"
+            : "public, max-age=31536000, immutable"
+      }
+    },
+    // Any other assets directory - no cache in dev
+    "/assets/**": {
+      headers: {
+        "Cache-Control":
+          process.env.NODE_ENV === "development"
+            ? "no-store, no-cache, must-revalidate"
+            : "public, max-age=31536000, immutable"
+      }
+    },
     // Locale JSON - in dev we want zero caching; in prod this can be tuned at CDN
     "/locale/**": {
       headers: {
