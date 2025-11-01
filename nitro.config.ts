@@ -52,8 +52,6 @@ export default defineNitroConfig({
       }
     }
   },
-  experimental: {
-    wasm: true
-  },
-  preset: "node-server"
+  // Use Vercel preset so Nitro writes Build Output API to .vercel/output
+  preset: "vercel"
 })
