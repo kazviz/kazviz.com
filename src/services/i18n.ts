@@ -80,7 +80,7 @@ export async function fetchTranslationData(
   const promise = (async () => {
     if (Array.isArray(path)) {
       try {
-        const base = `${import.meta.env.VITE_BASE_URL}/locale/${lang}`
+        const base = `/locale/${lang}`
         const runtimeVersion =
           typeof window !== "undefined"
             ? (window as any).__APP_BUILD_VERSION
@@ -139,9 +139,7 @@ export async function fetchTranslationData(
         const verParam =
           !isDev && versionParam ? `v=${encodeURIComponent(versionParam)}` : ""
         const query = [devBuster, verParam].filter(Boolean).join("&")
-        const url = `${
-          import.meta.env.VITE_BASE_URL
-        }/locale/${lang}/${path}.json${query ? `?${query}` : ""}`
+        const url = `/locale/${lang}/${path}.json${query ? `?${query}` : ""}`
         const res = await fetch(url, {
           method: "GET",
           headers: {
