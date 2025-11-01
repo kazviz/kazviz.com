@@ -32,7 +32,7 @@ Thumbs.db
 temp/
 *.tmp
 *.temp
-*/content/**/*.json
+public/build.json
 
 # wakatime
 .wakatime-project
